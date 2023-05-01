@@ -22,7 +22,7 @@ NS_LOG_COMPONENT_DEFINE ("Udp20ClientsServerCSMA");
 
 int 
 main (int argc, char *argv[]){
-    uint16_t numClients = 3;
+    uint16_t numClients = 20;
     Address serverAddress;
 
     // --- LOGGING --- //
@@ -62,8 +62,8 @@ main (int argc, char *argv[]){
     // --- APLICACOES --- //
     uint16_t serverPort = 9;
     NS_LOG_INFO ("Create UdpServerEcho application on node 1.");
-    UdpEchoServerHelper server (serverPort);
-    ApplicationContainer serverApp = server.Install (serverNode.Get(0));
+    UdpEchoServerHelper serverHelper (serverPort);
+    ApplicationContainer serverApp = serverHelper.Install (serverNode.Get(0));
 
     NS_LOG_INFO ("Create UdpClientEcho applications.");
     uint32_t packetSize = 1024;
